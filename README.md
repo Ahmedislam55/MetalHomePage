@@ -11,4 +11,4 @@ This Home Page was developed for a steel factory using Next.js, ensuring high pe
  ✅ Fully Responsive – Works flawlessly across all devices.
  ✅ Smooth Animations – Enhanced interactivity with Framer Motion.
  ✅ Scalable & Maintainable Code – Built for easy modifications and future expansions.
-🌐 Live Demo: 👉 Metal Home Page 🚀
+
