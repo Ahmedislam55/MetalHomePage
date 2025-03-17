@@ -1,0 +1,344 @@
+.qodef-header-navigation {
+  display: flex;
+  position: relative;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+.qodef-nav-list {
+  display: flex;
+  margin-top: 15px;
+}
+.qodef-nav-list li {
+  padding-right: 3rem;
+  font-size: 17px;
+  font-weight: 600;
+  position: relative;
+  list-style-type: none;
+}
+.qodef-nav-list li a {
+  color: #15141c;
+  text-decoration: none;
+}
+
+/* تنسيق النص الرئيسي مع الشرطة */
+.qodef-menu-item-text {
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.qodef-menu-item-text::before {
+  position: absolute;
+  content: "/";
+  left: -11px;
+  top: -2px;
+  color: #ff7618;
+  clip-path: inset(100% 0 0 0); /* مخفي افتراضيًا */
+  transition: clip-path 0.4s ease-out;
+}
+
+/* عند الـ hover أو الـ active للنص الرئيسي */
+.qodef-menu-item-text:hover::before,
+.qodef-nav-item.active .qodef-menu-item-text::before {
+  clip-path: inset(0 0 0 0);
+}
+
+/* تنسيق القوائم الفرعية */
+.qodef-dropdown {
+  position: absolute;
+  top: calc(100% + 32px); /* يظهر بعد الـ navbar مباشرة */
+  left: 0;
+  background-color: #15141c;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 40px 43px;
+  list-style: none;
+  width: 284px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+  z-index: 999999;
+}
+/* تنسيق عناصر القائمة الفرعية (sub) */
+.qodef-dropdown li a {
+  font-family: Lato, sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  color: #c1c1c1;
+  line-height: 1.4736842105em;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+/* تنسيق عناصر القائمة الفرعية (extra) */
+.qodef-menu-item-extraItem,
+.qodef-extra-dropdown li a {
+  font-family: Lato, sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  color: #c1c1c1;
+  line-height: 1.4736842105em;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+/* الشرطة الصفراء لكل من sub و extra */
+.qodef-menu-item-subItem::before,
+.qodef-dropdown li a::before {
+  position: absolute;
+  content: "/";
+  left: -11px;
+  top: -3px;
+  color: #ff7618;
+  clip-path: inset(100% 0 0 0); /* مخفي افتراضيًا */
+  transition: clip-path 0.4s ease-out;
+  overflow: hidden;
+}
+
+.qodef-menu-item-extraItem::before,
+.qodef-extra-dropdown li a::before {
+  position: absolute;
+  content: "/";
+  left: -11px;
+  top: -3px;
+  color: #ff7618;
+  clip-path: inset(100% 0 0 0); /* مخفي افتراضيًا */
+  transition: clip-path 0.4s ease-out;
+}
+
+/* عند الـ hover: تظهر الشرطة وتغير لون النص لـ أبيض (sub) */
+.qodef-menu-item-subItem:hover::before,
+.qodef-dropdown-open li:hover a::before {
+  clip-path: inset(0 0 0 0);
+}
+
+/* عند الـ hover: تظهر الشرطة وتغير لون النص لـ أبيض (extra) */
+.qodef-menu-item-extraItem:hover::before,
+.qodef-dropdown-open li:hover a::before {
+  clip-path: inset(0 0 0 0);
+}
+
+/* عند الـ hover أو الـ active: تغيير لون النص لـ أبيض (sub) */
+.qodef-dropdown li:hover a,
+.qodef-dropdown li.active a {
+  color: #fff;
+}
+
+/* عند الـ hover أو الـ active: تغيير لون النص لـ أبيض (extra) */
+.qodef-extra-dropdown li:hover a,
+.qodef-dropdown li.active a,
+.qodef-menu-item-extraItem:hover {
+  color: #fff;
+}
+
+/* ظهور القوائم الفرعية عند التحويم */
+.qodef-nav-item:hover .qodef-dropdown,
+.qodef-nav-item .qodef-dropdown:hover {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* التأكيد على ظهور الشرطة عند الـ active */
+.qodef-dropdown-open li.active a::before {
+  clip-path: inset(0 0 0 0);
+}
+
+/* ظهور القائمة الإضافية عند التحويم */
+.qodef-nav-item li:hover .qodef-extra-dropdown {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* تنسيق القائمة الإضافية (extra) */
+.qodef-extra-dropdown {
+  position: absolute;
+  top: calc(100% - 65px); /* تبدأ بعد العنصر مباشرة */
+  left: calc(100% + 42px); /* تظهر على يمين العنصر الأساسي */
+  background-color: #15141c;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 40px 43px;
+  list-style: none;
+  width: 284px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+  z-index: 9999;
+}
+.qodef-submenu-arrow {
+  color: #ff7618;
+  position: absolute;
+  left: 12rem;
+  top: 0px;
+  width: 18px;
+  opacity: 1;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.qodef-menu-item-subItem:hover .qodef-submenu-arrow {
+  animation: moveAndDisappear 0.5s linear forwards;
+}
+
+@keyframes moveAndDisappear {
+  0% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  35% {
+    transform: translateX(50px);
+    opacity: 0;
+  }
+  70% {
+    transform: translateX(-20px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0px);
+    opacity: 1;
+  }
+}
+/* Button for moblie */
+.moblieIcon {
+  display: none;
+}
+.menuButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 13%;
+  color: #15141c;
+  width: 3.5em;
+  height: 3.5em;
+  border-radius: 0;
+  transition: all 0.3s;
+}
+
+.menuButton:hover {
+  border: 1px solid white;
+}
+.menuButton:hover span {
+  border: 1px solid white;
+  background: #ff7618;
+}
+.menuButton:active {
+  color: #666;
+  box-shadow: inset 4px 4px 12px #c5c5c5, inset -4px -4px 12px #ffffff;
+}
+
+.menuButton input[type="checkbox"] {
+  -webkit-appearance: none;
+  display: none;
+  visibility: hidden;
+}
+
+.menuButton span {
+  width: 30px;
+  height: 4px;
+  background: #15141c;
+  border-radius: 100px;
+  transition: 0.3s ease;
+}
+
+.menuButton input[type]:checked ~ span.top {
+  transform: translateY(290%) rotate(45deg);
+  width: 40px;
+}
+
+.menuButton input[type]:checked ~ span.bot {
+  transform: translateY(-270%) rotate(-45deg);
+  width: 40px;
+  box-shadow: 0 0 10px #495057;
+}
+.menuButton input[type]:checked ~ span.mid {
+  transform: translateX(-20px);
+  opacity: 0;
+}
+/* Navlinks */
+.qodef-mobile-nav-list {
+  padding-top: 2rem;
+  margin-left: -2rem;
+  display: none;
+}
+.qodef-mobile-nav-list li a {
+  text-decoration: none;
+  color: #15141c;
+  font-weight: 700;
+  font-size: 17px;
+}
+.qodef-mobile-nav-list .qodef-nav-item {
+  padding-top: 1rem;
+}
+.qodef-mobile-nav-list .rightMobile {
+  color: #15141c;
+  margin-right: 2rem;
+  font-size: 18px;
+  transition: color 0.5s;
+  cursor: pointer;
+  padding-top: 10px;
+}
+.qodef-mobile-nav-list .rightMobile:hover {
+  color: #ff7618;
+}
+.qodef-dropdown-mobile
+{
+  width:100%;
+  position: relative;
+}
+.qodef-dropdown-mobile li  
+{
+  margin: 5px;
+  margin-left: -20px;
+  font-family: Lato, sans-serif;
+  padding-top: 5px;
+}
+.qodef-dropdown-mobile li a
+{
+  color: #15141c;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.4736842105em;
+  transition: color 0.5s;
+
+}
+.qodef-dropdown-mobile li a:hover
+{
+  color: #ff7618;
+}
+.iconsubMobile
+{
+  position: absolute;
+  right: 0;
+  margin-right: 2.1rem;
+  transition: color 0.5s;
+  cursor: pointer;
+  font-size: 18px;
+}
+.iconsubMobile:hover
+{
+  color: #ff7618;
+}
+.qodef-dropdown-mobile .active a
+{
+  color: #ff7618;
+}
+.qodef-mobile-nav-list .active .qodef-menu-item-text::before
+{
+  clip-path: inset(0 0 0 0);
+}
+@media screen and (max-width: 1000px) {
+  .qodef-nav-list {
+    display: none;
+  }
+  .qodef-page-header-inner {
+    padding: 2rem;
+  }
+  .moblieIcon {
+    display: block;
+    position: absolute;
+    top: -1.2rem;
+    right: 0rem;
+  }
+  .qodef-mobile-nav-list {
+    display: block;
+  }
+}
